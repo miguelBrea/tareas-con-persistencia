@@ -1,0 +1,17 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-title>Editar Tarea</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+    <ion-item>
+        <ion-label position="floating">Titulo</ion-label>
+        <ion-input [(ngModel)]="task.title" clearInput type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label position="floating">Descricción</ion-label>
+        <ion-input [(ngModel)]="task.description" clearInput type="text"></ion-input>
+    </ion-item>
+    <ion-button (click)="saveTask()" expand="block" shape="round">Guardar</ion-button>
+</ion-content>

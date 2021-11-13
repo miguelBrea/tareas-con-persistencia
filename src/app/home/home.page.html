@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      TAREAS
+    </ion-title>
+    <ion-buttons slot="end" padding>
+      <ion-button (click)="goEditTask()">
+        <ion-icon slot="icon-only" name="add"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-list>
+    <ion-item *ngFor="let t of tasksService.getTasks()">
+      <ion-label>{{ t.title }}</ion-label>
+      <ion-icon name="pencil" (click)="goEditTask(t.id)">
+      </ion-icon>
+      <ion-icon name="trash" (click)="presentAlertConfirm(t)">
+      </ion-icon>
+    </ion-item>
+  </ion-list>
+
+  <pre>{{tasksService.getTasks() | json}}</pre>
+</ion-content>
