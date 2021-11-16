@@ -37,6 +37,24 @@ export class HomePage {
     await alert.present();
   }
 
+  async alertInfo(t: Task) {
+    console.log('alerta');
+    const alert = await this.alertController.create({
+      header: `Informacion de la tarea`,
+      message: `<strong> ${t.title}</strong><br/><br>
+                <p>${t.description}</p>
+                <p><ion-icon slot="start" name="alarm-outline"></ion-icon>
+                ${t.duration} minutos</p>`,
+      buttons: [
+        {
+          text: 'Aceptar',
+          role: 'Aceptar',
+        }
+      ],
+    });
+    await alert.present();
+  }
+
   goEditTask(id: number) {
     this.router.navigateByUrl(`/edit${id !== undefined ? '/' + id : ''}`);
   }

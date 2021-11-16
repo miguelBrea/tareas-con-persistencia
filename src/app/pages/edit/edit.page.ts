@@ -9,7 +9,7 @@ import { TasksService } from 'src/app/services/tasks.service';
   styleUrls: ['./edit.page.scss'],
 })
 export class EditPage implements OnInit {
-  task: Task = { title: '', description: '' };
+  task: Task = { title: '', description: '', duration: 0 };
 
   constructor(
     private tasksService: TasksService,
@@ -19,9 +19,11 @@ export class EditPage implements OnInit {
 
   ngOnInit() {
     const id = this.activatedRoute.snapshot.paramMap.get('id');
+
     if (id != null) {
       this.task = this.tasksService.getTask(+id);
     }
+
   }
 
   saveTask() {
